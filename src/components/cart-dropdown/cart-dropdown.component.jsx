@@ -5,7 +5,6 @@ import CartItem from '../cart-item/cart-item.component'
 import {CartDropdownContainer, CartDropdownButton, CartItemsContainer, EmptyMessageContainer} from './cart-dropdown.styles';
 import {createStructuredSelector} from 'reselect';
 import { selectorCartItems} from '../../redux/cart/cart.selectors';
-
 import { toggleCartHidden } from '../../redux/cart/cart.actions'
 
 const CartDropdown = ({ cartItems, history, dispatch}) => (

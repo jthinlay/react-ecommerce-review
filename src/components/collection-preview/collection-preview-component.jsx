@@ -12,7 +12,7 @@ const CollectionPreview = ({title, items, history, match, routeName}) => {
                         <CollectionItem key={item.id} item={item} /> 
                     ))
                 }
-        </PreviewContainer>
-    </CollectionPreviewContainer>
+            </PreviewContainer>
+       </CollectionPreviewContainer>
     )}
 export default withRouter(CollectionPreview);
