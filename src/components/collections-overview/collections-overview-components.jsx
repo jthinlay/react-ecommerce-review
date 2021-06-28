@@ -5,7 +5,7 @@ import{connect} from 'react-redux';
 import{createStructuredSelector} from 'reselect';
 import{selectCollectionsForPreview} from '../../redux/shop/shop.selectors'
   
-const CollectionsOverview = ({collections}) => (
+const CollectionsOverview = ({collections}) =>(
     <CollectionsOverviewContainer>
         {
             collections.map(({id, ...otherCollectionProps}) => (

@@ -9,13 +9,13 @@ const CheckoutItem = ({cartItem, clearItem, addItem, removeItem}) => {
                 <ImageContainer> <img src={imageUrl} alt="Item"/> </ImageContainer>
                 <TextContainer>{name}</TextContainer>
                     <QuantityContainer>
-                        <div onClick ={() => removeItem(cartItem)} >  &#10094;  &nbsp;</div>
+                        <div onClick ={() => removeItem(cartItem)} >&#10094;  &nbsp;</div>
                             <span> {quantity} </span>
-                        <div onClick= {() => addItem(cartItem)} >  &nbsp; &#10095; </div>
+                        <div onClick= {() => addItem(cartItem)} >&nbsp; &#10095; </div>
                     </QuantityContainer>
                 <TextContainer>{price}</TextContainer>
-        <RemoveButtonContainer onClick = {() => clearItem(cartItem)} > &#10005;</RemoveButtonContainer>
-    </CheckoutItemContainer>
+                <RemoveButtonContainer onClick = {() => clearItem(cartItem)} > &#10005;</RemoveButtonContainer>
+        </CheckoutItemContainer>
 )}
 const mapDispatchToProps = dispatch => ({
     clearItem: item => dispatch(clearItemFromCart(item)),

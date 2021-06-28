@@ -5,7 +5,6 @@ import rootReducer from './root-reducer';
 import {persistStore} from 'redux-persist';
 import rootSaga from './root-saga';
 
-
 // mport thunk from 'redux-thunk';
 // const middlewares = [thunk];
  

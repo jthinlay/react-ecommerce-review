@@ -25,8 +25,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
             displayName,
             email, 
             createdAt,
-            ...additionalData
-          })
+            ...additionalData })
         }catch(error){
           console.log('error: ', error.message);
         }
@@ -34,15 +33,15 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 }
 
-  export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-    const collectionRef = firestore.collection(collectionKey);
-    const batch = firestore.batch(); 
-    objectsToAdd.forEach((obj) => {
-      const newDocRef = collectionRef.doc();
-      batch.set(newDocRef, obj)
-    });
-      return await batch.commit();
-  }
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const batch = firestore.batch(); 
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj)
+  });
+    return await batch.commit();
+}
 
  export const convertCollectionsSnapshotToMap  = (collections) => {
     const transformedCollection = collections.docs.map(doc => {
@@ -62,7 +61,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 }
   
 firebase.initializeApp(config);
-
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) =>  {
   const unsubscribe = auth.onAuthStateChanged(userAuth => {
@@ -71,11 +69,9 @@ export const getCurrentUser = () => {
     }, reject)
   })
 }
-
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const GoogleProvider = new firebase.auth.GoogleAuthProvider();
-
 GoogleProvider.setCustomParameters({ prompt: 'select_account'});
 export const signInWithGoogle = () => auth.signInWithPopup(GoogleProvider);
 
