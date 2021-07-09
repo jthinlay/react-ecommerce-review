@@ -1,5 +1,6 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios'; 
 
 const StripeCheckoutButton = ({price}) => {
     // Stripe ulitize currency calculate in cent, you have to multiply by 100 for US one dollar
@@ -7,8 +8,19 @@ const StripeCheckoutButton = ({price}) => {
     const publishableKey = 'pk_test_nNrMg7PV4OMRAtEzUgu6gQpS';
     
     const onToken = (token) => {
-        console.log(token);
-        alert('Payment Successfully ')
+        axios({
+            url: 'payment',
+            method: 'post',
+            data: {
+                amount: priceForStripe,
+                token
+            }
+        }).then(response => {
+            alert("Payment successful!")
+        }).catch(error => {
+            console.log('Payment error: ', JSON.parse(error));
+            alert(' There was an issue with your payment. Please make sure use provided credit card')
+        });
     }
     return (
         <StripeCheckout
